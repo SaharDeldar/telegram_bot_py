@@ -6,3 +6,6 @@
 /help
 /qr
 /list
+
+
+comming soon 
