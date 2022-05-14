@@ -65,14 +65,14 @@ def list(message):
     bot.reply_to(message,f"Enter a number in order to say the largest")
     @bot.message_handler(func= lambda m: True)
     def echo(message):
-        if message.text != "/done":
+        if message.text != "/yes":
             num_lst =int(message.text)
             list_num.append(num_lst)
             max_lst = max (list_num)
-        if message.text != "/done":      
-            bot.reply_to(message,f"عدد مورد نظر به لیست وارد شد. اگر اعدادت تمام شد روی /start click to")
+        if message.text != "/yes":      
+            bot.reply_to(message,f"The desired number was added to the list. If you run out of numbers,/startclick to")
         
-        bot.reply_to(message,f"فهرست اعدادی که وارد کردی {list_num} :هست و بزرگترین عدد آن \n {max_lst} است")
+        bot.reply_to(message,f"List of numbers you entered {list_num} :Is and its largest number \n {max_lst} Is")
 
 
             
