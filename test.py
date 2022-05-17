@@ -46,7 +46,19 @@ def send_a(message):
         sal = int(message.text)
         today = 1401 - sal
         bot.reply_to(message,f"{myname} You now {today} age!")
-    
+
+@bot.message_handler(commands =['help'])
+def send_a(message):
+    myname = message.from_user.first_name
+    bot.reply_to(message,f"""hello {myname} This is help menu:
+          /age: For calculating your age.
+          /qr: Creating QR code with your input.
+          /list: For showing the biggest number in your list.
+          /game: Start a new game with me.
+                 """)
+
+
+
 @bot.message_handler(commands =['qr'])
 def send_a(message):
     myname = message.from_user.first_name
@@ -69,13 +81,13 @@ def list(message):
             num_lst =int(message.text)
             list_num.append(num_lst)
             max_lst = max (list_num)
-        if message.text != "/yes":      
+        if message.text != "/yes":
             bot.reply_to(message,f"The desired number was added to the list. If you run out of numbers,/startclick to")
-        
+
         bot.reply_to(message,f"List of numbers you entered {list_num} :Is and its largest number \n {max_lst} Is")
 
 
-            
+
 
 
 
@@ -92,4 +104,4 @@ def list(message):
 #     elif  message.text == "chtoryi":
 #         bot.reply_to(message,"khobam ")
 
-bot.infinity_polling()    
+bot.infinity_polling()
